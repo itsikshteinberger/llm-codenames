@@ -4,6 +4,7 @@ import re
 import os
 
 # Add your key here:
+os.environ['OPENAI_API_KEY'] = 'add your key here'
 
 llm_clue_giver = ChatOpenAI(model_name="gpt-4", temperature=0.7)
 llm_guesser = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
@@ -74,3 +75,4 @@ def get_guesses(clue, number, unguessed_words):
     guesses = [w.strip().upper() for w in response.split(',') if w.strip().upper() in unguessed_words]
 
     return guesses[:number + 1]
+
